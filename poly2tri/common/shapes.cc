@@ -52,7 +52,7 @@ void Triangle::MarkNeighbor(Point* p1, Point* p2, Triangle* t)
   else if ((p1 == points_[0] && p2 == points_[1]) || (p1 == points_[1] && p2 == points_[0]))
     neighbors_[2] = t;
   else
-    assert(0);
+      throw std::exception ( "Triangle::MarkNeighbor" );
 }
 
 // Exhaustive search to update neighbor pointers
@@ -150,7 +150,7 @@ void Triangle::Legalize(Point& opoint, Point& npoint)
     points_[2] = points_[1];
     points_[1] = &npoint;
   } else {
-    assert(0);
+	throw std::exception ( "Triangle::Legalize" );
   }
 }
 
@@ -163,7 +163,7 @@ int Triangle::Index(const Point* p)
   } else if (p == points_[2]) {
     return 2;
   }
-  assert(0);
+  throw std::exception ( "Triangle::Index" );
 }
 
 int Triangle::EdgeIndex(const Point* p1, const Point* p2)
@@ -222,7 +222,7 @@ Point* Triangle::PointCW(Point& point)
   } else if (&point == points_[2]) {
     return points_[1];
   }
-  assert(0);
+  throw std::exception ( "Triangle::PointCW" );
 }
 
 // The point counter-clockwise to given point
@@ -235,7 +235,7 @@ Point* Triangle::PointCCW(Point& point)
   } else if (&point == points_[2]) {
     return points_[0];
   }
-  assert(0);
+  throw std::exception ( "Triangle::PointCCW" );
 }
 
 // The neighbor clockwise to given point
